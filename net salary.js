@@ -1,58 +1,58 @@
 function taxCalculator(salary) {
-  const monthlyTaxablePay = salary;
-  if (monthlyTaxablePay <= 24000) {
-    return `total is ${monthlyTaxablePay * 0.1}`;
-  } else if (monthlyTaxablePay <= 32333 && monthlyTaxablePay >= 24001) {
-    return `total is ${monthlyTaxablePay * 0.25}`;
-  } else if (monthlyTaxablePay <= 500000 && monthlyTaxablePay >= 32334) {
-    return `total is ${monthlyTaxablePay * 0.3}`;
-  } else if (monthlyTaxablePay <= 800000 && monthlyTaxablePay >= 500001) {
-    return `total is ${monthlyTaxablePay * 0.325}`;
+  let grossPayMinusTax;
+  if (salary <= 24000) {
+    return (grossPayMinusTax = salary * 0.9);
+  } else if (salary <= 32333 && salary >= 24001) {
+    return (grossPayMinusTax = salary * 0.75);
+  } else if (salary <= 500000 && salary >= 32334) {
+    return (grossPayMinusTax = salary * 0.7);
+  } else if (salary <= 800000 && salary >= 500001) {
+    return (grossPayMinusTax = salary * 0.675);
   } else {
-    return `total is ${monthlyTaxablePay * 0.35}`;
+    return (grossPayMinusTax = salary * 0.65);
   }
 
   // NHIF RATE
 
-  function calculateNhifRates(grossPay) {
-    let deduction = 0;
-
-    if (grossPay <= 5999) {
-      return (deduction = 150);
-    } else if (grossPay >= 6000 && grossPay <= 7999) {
-      return (deduction = 300);
-    } else if (grossPay >= 8000 && grossPay <= 11999) {
-      return (deduction = 400);
-    } else if (grossPay >= 12000 && grossPay <= 14999) {
-      return (deduction = 500);
-    } else if (grossPay >= 15000 && grossPay <= 19999) {
-      return (deduction = 600);
-    } else if (grossPay >= 20000 && grossPay <= 24999) {
-      return (deduction = 750);
-    } else if (grossPay >= 25000 && grossPay <= 29999) {
-      return (deduction = 850);
-    } else if (grossPay >= 30000 && grossPay <= 34999) {
-      return (deduction = 900);
-    } else if (grossPay >= 35000 && grossPay <= 35999) {
-      return (deduction = 950);
-    } else if (grossPay >= 40000 && grossPay <= 44999) {
-      return (deduction = 1000);
-    } else if (grossPay >= 45000 && grossPay <= 49999) {
-      return (deduction = 1100);
-    } else if (grossPay >= 50000 && grossPay <= 59999) {
-      return (deduction = 1200);
-    } else if (grossPay >= 60000 && grossPay <= 69999) {
-      return (deduction = 1300);
-    } else if (grossPay >= 70000 && grossPay <= 79999) {
-      return (deduction = 1400);
-    } else if (grossPay >= 80000 && grossPay <= 89999) {
-      return (deduction = 1500);
-    } else if (grossPay >= 90000 && grossPay <= 99999) {
-      return (deduction = 1600);
+  function calculateNhifRates() {
+    if (grossPayMinusTax <= 5999) {
+      return 150;
+    } else if (grossPayMinusTax >= 6000 && grossPayMinusTax <= 7999) {
+      return 300;
+    } else if (grossPayMinusTax >= 8000 && grossPayMinusTax <= 11999) {
+      return 400;
+    } else if (grossPayMinusTax >= 12000 && grossPayMinusTax <= 14999) {
+      return 500;
+    } else if (grossPayMinusTax >= 15000 && grossPayMinusTax <= 19999) {
+      return 600;
+    } else if (grossPayMinusTax >= 20000 && grossPayMinusTax <= 24999) {
+      return 750;
+    } else if (grossPayMinusTax >= 25000 && grossPayMinusTax <= 29999) {
+      return 850;
+    } else if (grossPayMinusTax >= 30000 && grossPayMinusTax <= 34999) {
+      return 900;
+    } else if (grossPayMinusTax >= 35000 && grossPayMinusTax <= 35999) {
+      return 950;
+    } else if (grossPayMinusTax >= 40000 && grossPayMinusTax <= 44999) {
+      return 1000;
+    } else if (grossPayMinusTax >= 45000 && grossPayMinusTax <= 49999) {
+      return 1100;
+    } else if (grossPayMinusTax >= 50000 && grossPayMinusTax <= 59999) {
+      return 1200;
+    } else if (grossPayMinusTax >= 60000 && grossPayMinusTax <= 69999) {
+      return 1300;
+    } else if (grossPayMinusTax >= 70000 && grossPayMinusTax <= 79999) {
+      return 1400;
+    } else if (grossPayMinusTax >= 80000 && grossPayMinusTax <= 89999) {
+      return 150;
+    } else if (grossPayMinusTax >= 90000 && grossPayMinusTax <= 99999) {
+      return 1600;
     } else {
-      return (deduction = 1700);
+      return 1700;
     }
   }
+  calculateNhifRates();
+
   //NSSF
   function calculateNssf(pensionablePay) {
     if (pensionablePay <= 7000) {
@@ -63,3 +63,4 @@ function taxCalculator(salary) {
     }
   }
 }
+taxCalculator();

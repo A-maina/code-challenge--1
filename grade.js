@@ -1,6 +1,11 @@
 function studentGradeGenerator() {
   let marks = prompt("Enter students marks");
   //If marks is greater than 79, it returns grade A.
+
+  if (isNaN(marks) || marks < 0 || marks > 100) {
+    return " type a number between 0 to 100";
+  }
+
   if (marks > 79 && marks <= 100) {
     return "A";
   }
@@ -22,8 +27,5 @@ function studentGradeGenerator() {
   //If mark is less than 40, it returns grade E.
   else {
     return "E";
-  }
-  if (isNaN(marks) && marks >= 0 && marks <= 100) {
-    return " type a number between o to 100";
   }
 }
